@@ -28,7 +28,7 @@ define :manual_installer do
     global true
   end
 
-  %w(simple_pid gli logging zip).each do |gem|
+  %w(simple_pid gli logging zip bundler).each do |gem|
     rbenv_gem gem do
       ruby_version node['aws-codedeploy-agent']['ruby-version']
     end
@@ -56,6 +56,11 @@ define :manual_installer do
 
   link '/etc/codedeploy-agent/conf/codedeployagent.yml' do
     to '/opt/codedeploy-agent/conf/codedeployagent.yml'
+  end
+
+  execute 'bundle_install' do
+    command 'bundle install'
+    cwd '/opt/codedeploy-agent'
   end
 
   service 'codedeploy-agent' do
