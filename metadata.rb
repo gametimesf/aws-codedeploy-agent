@@ -1,10 +1,10 @@
-name             'aws-codedeploy-agent'
-maintainer       'Oswald De Riemaecker'
-maintainer_email 'oswald@continuousphp.com'
+name             'gt-aws-codedeploy-agent'
+maintainer       'gt backend'
+maintainer_email 'backend@gametime.co'
 license          'Apache 2.0'
 description      'Installs/Configures aws-codedeploy-agent'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          '0.4.1'
+version          '0.8.0'
 
 supports 'ubuntu'
 supports 'centos'
