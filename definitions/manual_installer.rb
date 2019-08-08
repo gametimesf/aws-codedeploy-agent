@@ -39,10 +39,6 @@ define :manual_installer do
     version '2.3.17'
   end
 
-  link '/usr/bin/ruby2.0' do
-    to '/opt/rbenv/versions/2.0.0-p645/bin/ruby'
-  end
-
   link '/etc/init.d/codedeploy-agent' do
     to '/opt/codedeploy-agent/init.d/codedeploy-agent'
   end
@@ -59,7 +55,7 @@ define :manual_installer do
   end
 
   execute 'bundle_install' do
-    command 'bundle install'
+    command '/opt/rbenv/shims/bundle install'
     cwd '/opt/codedeploy-agent'
   end
 
